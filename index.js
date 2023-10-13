@@ -9,8 +9,8 @@ app.use(bodyParser.json());
 app.post('/webhook', (req, res) => {
     console.log('Received Webhook:', req.body.repository.name);
 
-    if (req.body.repository.name === 'poppy') {
-        exec("cd ../poppy && git pull", (error, stdout, stderr) => {
+    if (req.body.repository.name) {
+        exec(`cd ../${req.body.repository.name} && git pull`, (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 return;
