@@ -7,6 +7,12 @@ app.use(bodyParser.json());
 
 app.post('/webhook', (req, res) => {
     console.log('Received Webhook:', req.body.repository.name);
+
+    if (req.body.repository.name === 'poppy') {
+        child_process.exec('ls', {cwd: './'}, function(err, stdout, stderr) {});
+        
+    }
+
     res.status(200).send('OK');
 });
 
