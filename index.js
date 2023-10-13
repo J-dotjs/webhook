@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post('/webhook', (req, res) => {
-    console.log('Received Webhook:', req.body.repository.name);
+    console.log('Received Webhook:', req);
 
     if (req.body.repository.name) {
         exec(`cd ../${req.body.repository.name} && git pull`, (error, stdout, stderr) => {
