@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post('/webhook', (req, res) => {
-    console.log('Received Webhook:', req.body);
+    console.log('Received Webhook:', req.body.repository.full_name);
     res.status(200).send('OK');
 });
 
