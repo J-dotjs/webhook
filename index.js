@@ -10,7 +10,7 @@ app.post('/webhook', (req, res) => {
     console.log('Received Webhook:', req.body.repository.name);
 
     if (req.body.repository.name === 'poppy') {
-        exec("cd ../ && ls -la", (error, stdout, stderr) => {
+        exec("cd ../poppy && ls -la", (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 return;
